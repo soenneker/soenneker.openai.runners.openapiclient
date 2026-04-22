@@ -1,16 +1,15 @@
-using Soenneker.Tests.FixturedUnit;
-using Xunit;
+using Soenneker.Tests.HostedUnit;
 
 namespace Soenneker.OpenAI.Runners.OpenApiClient.Tests;
 
-[Collection("Collection")]
-public sealed class OpenAIOpenApiClientRunnerTests : FixturedUnitTest
+[ClassDataSource<Host>(Shared = SharedType.PerTestSession)]
+public sealed class OpenAIOpenApiClientRunnerTests : HostedUnitTest
 {
-    public OpenAIOpenApiClientRunnerTests(Fixture fixture, ITestOutputHelper output) : base(fixture, output)
+    public OpenAIOpenApiClientRunnerTests(Host host) : base(host)
     {
     }
 
-    [Fact]
+    [Test]
     public void Default()
     {
 
