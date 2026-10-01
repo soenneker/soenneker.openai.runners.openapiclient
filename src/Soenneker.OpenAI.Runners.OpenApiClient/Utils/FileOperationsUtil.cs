@@ -65,7 +65,7 @@ public sealed class FileOperationsUtil : IFileOperationsUtil
         await _fileUtil.DeleteIfExists(targetFilePath, cancellationToken: cancellationToken);
         await _fileUtil.DeleteIfExists(jsonFilePath, cancellationToken: cancellationToken);
 
-        string openApiDocumentUrl = _configuration["OpenAI:ClientGenerationUrl"] ?? "https://app.stainless.com/api/spec/documented/openai/openapi.documented.yml";
+        string openApiDocumentUrl = _configuration["OpenAI:ClientGenerationUrl"] ?? "https://raw.githubusercontent.com/openai/openai-openapi/main/openapi.yaml";
 
         string? filePath = await _fileDownloadUtil.Download(openApiDocumentUrl,
             targetFilePath, fileExtension: ".yml", cancellationToken: cancellationToken);
